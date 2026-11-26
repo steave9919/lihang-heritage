@@ -16,10 +16,12 @@
 <meta property="og:url" content="https://steave9919.github.io/lihang-heritage/">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:locale:alternate" content="en_US">
-<meta property="og:image" content="https://steave9919.github.io/lihang-heritage/assets/congtai-cc0-a.jpg">
-<meta property="og:image:alt" content="邯郸武灵丛台夜景">
+<meta property="og:image" content="https://steave9919.github.io/lihang-heritage/assets/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="圣相故里 · 南相公庄，李沆艺术再现像">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://steave9919.github.io/lihang-heritage/assets/congtai-cc0-a.jpg">
+<meta name="twitter:image" content="https://steave9919.github.io/lihang-heritage/assets/og-cover.jpg">
 <meta name="twitter:title" content="一座因宰相得名的村庄｜李沆故里数字馆">
 <meta name="twitter:description" content="北宋名相李沆故里 · 南相公庄村">
 <style>
@@ -166,6 +168,7 @@ h1 span{display:block;color:var(--gold)}
 .hero-photo{position:absolute;inset:0;background:url("assets/congtai-cc0-a.jpg") center 42%/cover no-repeat;filter:grayscale(.3) sepia(.14) saturate(.85) brightness(.6);opacity:.7;pointer-events:none}
 .hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,16,21,.96) 0%,rgba(11,16,21,.86) 38%,rgba(11,16,21,.4) 78%,rgba(11,16,21,.55) 100%),linear-gradient(0deg,var(--ink) 0%,transparent 34%),linear-gradient(180deg,rgba(11,16,21,.7) 0%,transparent 26%);pointer-events:none}
 .hero-landscape{opacity:.24}
+.hero-figure{position:absolute;right:0;bottom:0;height:86%;width:min(38vw,500px);z-index:1;pointer-events:none;object-fit:cover;object-position:50% 8%;opacity:.46;filter:grayscale(.2) sepia(.18) brightness(.6) contrast(1.06);-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.5) 24%,#000 66%,#000 100%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.5) 24%,#000 66%,#000 100%)}
 .hero-meta{text-align:right;display:flex;flex-direction:column;gap:8px}
 .hero-meta small{font-size:9px;letter-spacing:.1em;color:rgba(238,234,225,.4);line-height:1.7}
 
@@ -193,9 +196,17 @@ h1 span{display:block;color:var(--gold)}
 .credits a:hover{color:var(--gold)}
 
 .portrait-band{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:clamp(32px,5vw,72px);align-items:center;margin-bottom:clamp(56px,7vw,92px)}
-.portrait-fig{margin:0}
-.portrait-fig img{width:100%;height:clamp(300px,38vw,480px);object-fit:cover;object-position:50% 66%;display:block;filter:grayscale(.28) sepia(.2) contrast(1.05) brightness(.82);border:1px solid rgba(184,154,99,.3)}
-.portrait-fig figcaption{margin-top:12px;font-size:10px;line-height:1.9;letter-spacing:.06em;color:var(--text-light-muted)}
+.portrait-stage{margin:0}
+.portrait-stage img{width:100%;height:clamp(360px,42vw,540px);object-fit:cover;object-position:50% 20%;display:block;filter:sepia(.06) brightness(.94);border:1px solid rgba(184,154,99,.3);background:var(--paper-2)}
+.portrait-stage figcaption{margin-top:12px;font-size:10px;line-height:1.9;letter-spacing:.05em;color:var(--text-light-muted)}
+.portrait-thumbs{display:flex;gap:10px;margin-top:16px}
+.portrait-thumbs button{flex:1;background:transparent;border:1px solid rgba(184,154,99,.26);padding:0;cursor:pointer;overflow:hidden;transition:border-color .3s;font-family:var(--sans)}
+.portrait-thumbs button:hover{border-color:rgba(184,154,99,.7)}
+.portrait-thumbs button[aria-pressed="true"]{border-color:var(--gold)}
+.portrait-thumbs img{width:100%;height:82px;object-fit:cover;object-position:50% 18%;display:block;filter:grayscale(.5) brightness(.82)}
+.portrait-thumbs button[aria-pressed="true"] img{filter:none}
+.portrait-thumbs span{display:block;font-size:9px;letter-spacing:.06em;padding:8px 3px;text-align:center;color:var(--text-light-muted)}
+.portrait-thumbs button[aria-pressed="true"] span{color:var(--gold)}
 .pn-label{font-size:10px;letter-spacing:.28em;color:var(--gold)}
 .pn-big{margin-top:22px;font-family:var(--serif);font-size:clamp(30px,3.6vw,50px);line-height:1.35;color:var(--text-light)}
 .pn-text{margin-top:24px;max-width:640px;font-size:14px;line-height:2.1;color:var(--text-light-muted)}
@@ -206,7 +217,8 @@ h1 span{display:block;color:var(--gold)}
   .plate:nth-child(1){grid-row:span 1}
   .plate:nth-child(2){grid-column:span 1}
   .portrait-band{grid-template-columns:1fr}
-  .portrait-fig img{height:360px}
+  .portrait-stage img{height:420px}
+  .hero-figure{display:none}
   .credits ul{grid-template-columns:1fr}
 }
 @media(max-width:640px){
@@ -271,6 +283,7 @@ html[lang="en"] .en-only{display:block!important}
   <section class="hero" id="top">
     <div class="hero-photo" aria-hidden="true"></div>
     <div class="hero-shade" aria-hidden="true"></div>
+    <img class="hero-figure" src="assets/lihang-full.webp" alt="" aria-hidden="true" decoding="async">
     <div class="hero-word" aria-hidden="true">相</div>
     <svg class="hero-landscape" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
       <circle cx="1090" cy="132" r="66" fill="none" stroke="#b89a63" stroke-width="1" opacity=".55"/>
@@ -293,7 +306,7 @@ html[lang="en"] .en-only{display:block!important}
       <div class="scroll-cue"><i></i><span data-en="SCROLL TO EXPLORE">向下浏览</span></div>
       <div class="hero-meta">
         <span>01 / 06 &nbsp;·&nbsp; 130407103222</span>
-        <small>背景影像 · 武灵丛台（邯郸）· 地域文脉，非李沆时代遗存<br>WIKIMEDIA COMMONS · CC0</small>
+        <small>人物像 · 李沆艺术再现像（非史实肖像）　|　背景 · 武灵丛台<br>ARTISTIC RECONSTRUCTION　|　WIKIMEDIA COMMONS · CC0</small>
       </div>
     </div>
   </section>
@@ -369,8 +382,8 @@ html[lang="en"] .en-only{display:block!important}
         <li>赵武灵王塑像（图版 01）· <a href="https://commons.wikimedia.org/wiki/File:Statue_of_King_Zhao_Wuling_in_Congtai_Park.jpg" target="_blank" rel="noopener">我乃野云鹤</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> · Wikimedia Commons</li>
         <li>广府古城城墙（图版 03）· <a href="https://commons.wikimedia.org/wiki/File:Guangfu_Ancient_City_4.jpg" target="_blank" rel="noopener">我乃野云鹤</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> · Wikimedia Commons</li>
         <li>响堂山石窟佛像（图版 04）· <a href="https://commons.wikimedia.org/wiki/File:A_Buddha_statue_in_Xiangtangshan_Grottoes.jpg" target="_blank" rel="noopener">Rongcan Lu</a> · <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a> · Wikimedia Commons</li>
-        <li>（传）宋徽宗《文会图》（李沆其人章节）· <a href="https://commons.wikimedia.org/wiki/File:%E6%96%87%E6%9C%83%E5%9C%96.jpg" target="_blank" rel="noopener">公有领域 / Public domain</a> · 台北故宫博物院藏 · 时代意象，非李沆肖像</li>
-        <li>全部图像取自 Wikimedia Commons 自由授权素材，已按许可证要求标注作者、许可与原始文件页。</li>
+        <li>李沆人物图版三幅（设色半身像、半身白描稿、全身立像）· 本站提供 · <b>艺术再现图，非史实肖像、不作容貌依据</b></li>
+        <li>建筑与古画图像取自 Wikimedia Commons 自由授权素材，已按许可证要求标注作者、许可与原始文件页；李沆人物图版为艺术再现，另见「李沆其人」章节说明。</li>
       </ul>
     </details>
   </section>
@@ -385,15 +398,43 @@ html[lang="en"] .en-only{display:block!important}
     </div>
 
     <div class="portrait-band reveal">
-      <figure class="portrait-fig">
-        <img src="assets/song-wenhui-alt.jpg" alt="（传）宋徽宗《文会图》，北宋文士宴集场景，公有领域" loading="lazy" decoding="async" width="1400" height="2089">
-        <figcaption>（传）宋徽宗《文会图》· 绢本设色 · 台北故宫博物院藏 · 公有领域<br>北宋士大夫的时代意象，<b>非李沆肖像</b></figcaption>
-      </figure>
+      <div>
+        <figure class="portrait-stage">
+          <img id="portrait-main" src="assets/lihang-portrait.webp" alt="李沆艺术再现像 · 设色半身像，身着朱色圆领袍、手持书卷" loading="lazy" decoding="async" width="1050" height="1400">
+          <figcaption id="portrait-cap">李沆 · 设色半身像　|　艺术再现，非史实肖像；据史料绘制，不作容貌依据</figcaption>
+        </figure>
+        <div class="portrait-thumbs" role="group" aria-label="人物图版切换">
+          <button type="button" aria-pressed="true"
+            data-src="assets/lihang-portrait.webp"
+            data-alt="李沆艺术再现像 · 设色半身像，身着朱色圆领袍、手持书卷"
+            data-cap="李沆 · 设色半身像　|　艺术再现，非史实肖像；据史料绘制，不作容貌依据"
+            data-encap="Li Hang, coloured half-length portrait | An artistic reconstruction, not an authenticated likeness.">
+            <img src="assets/lihang-portrait-thumb.webp" alt="" loading="lazy" decoding="async">
+            <span data-en="Coloured portrait">设色半身像</span>
+          </button>
+          <button type="button" aria-pressed="false"
+            data-src="assets/lihang-baimiao.webp"
+            data-alt="李沆艺术再现像 · 半身白描线稿"
+            data-cap="李沆 · 半身白描稿　|　线描稿本，艺术再现，非史实肖像"
+            data-encap="Li Hang, line drawing | Working draft; an artistic reconstruction, not an authenticated likeness.">
+            <img src="assets/lihang-baimiao-thumb.webp" alt="" loading="lazy" decoding="async">
+            <span data-en="Line drawing">半身白描稿</span>
+          </button>
+          <button type="button" aria-pressed="false"
+            data-src="assets/lihang-full.webp"
+            data-alt="李沆艺术再现像 · 全身立像，北宋宰辅服制"
+            data-cap="李沆 · 全身立像　|　北宋宰辅服制意象，艺术再现，非史实肖像"
+            data-encap="Li Hang, full-length portrait | An image of Northern Song chancellor's robes; artistic reconstruction.">
+            <img src="assets/lihang-full-thumb.webp" alt="" loading="lazy" decoding="async">
+            <span data-en="Full-length">全身立像</span>
+          </button>
+        </div>
+      </div>
       <div>
         <div class="pn-label" data-en="ON THE PORTRAIT">关于肖像 / ON THE PORTRAIT</div>
-        <p class="pn-big" data-en="No likeness survives; no image is invented.">史无写真，故不立像</p>
-        <p class="pn-text">李沆（947—1004）没有可信的传世肖像，坊间所见各类「李沆像」多为后世想象或现代绘制。本站不以想象画冒充实像，仅以同时代的宋人绘画呈现他所处的士大夫世界；认识这个人，仍要回到《宋史》本传、杨亿所撰《李沆墓志铭》与民国《肥乡县志》的原文。</p>
-        <p class="pn-text en-only">Li Hang (947–1004) has no surviving authenticated portrait. This site does not present an imagined likeness as a historical image.</p>
+        <p class="pn-big" data-en="No likeness survives; these are reconstructions.">史无写真，以像存意</p>
+        <p class="pn-text">李沆（947—1004）没有可信的传世肖像。本组三幅——设色半身像、半身白描稿与全身立像——为据史料创作的艺术再现，用以呈现其北宋宰辅形象，<b>不作为史实肖像或容貌依据</b>。认识这个人，仍要回到《宋史》本传、杨亿所撰《李沆墓志铭》与民国《肥乡县志》的原文。</p>
+        <p class="pn-text en-only">These three portraits (coloured, line drawing, full-length) are artistic reconstructions based on historical records. They are not authenticated likenesses and are not evidence of Li Hang's appearance.</p>
       </div>
     </div>
 
@@ -550,7 +591,7 @@ html[lang="en"] .en-only{display:block!important}
       <a href="https://www.monticello.org/" target="_blank" rel="noopener">视觉参考 · Monticello</a>
     </div>
   </div>
-  <p class="img-foot">图像说明：李沆无传世写真，本站不立像；邯郸古建筑照片仅作地域文脉展示，非李沆时代遗存。全部图像取自 Wikimedia Commons 自由授权素材，作者、许可与原始文件页见「故里风物」章节的图像来源与授权。</p>
+  <p class="img-foot">图像说明：李沆人物图版三幅为据史料创作的艺术再现像，非史实肖像、不作容貌依据；邯郸古建筑照片仅作地域文脉展示，非李沆时代遗存。建筑与绘画素材取自 Wikimedia Commons 自由授权资源，作者、许可与原始文件页见「故里风物」章节的图像来源与授权。</p>
   <div class="footer-bottom">
     <span>圣相故里 · 南相公庄　|　LI HANG HERITAGE</span>
     <span>HEBEI · HANDAN · FEIXIANG　|　PREVIEW EDITION · 2026</span>
@@ -584,6 +625,20 @@ html[lang="en"] .en-only{display:block!important}
   },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 
+  var pm=document.getElementById('portrait-main'),pc=document.getElementById('portrait-cap');
+  var pbtns=document.querySelectorAll('.portrait-thumbs button');
+  function syncCap(){
+    var a=document.querySelector('.portrait-thumbs button[aria-pressed="true"]');
+    if(a&&pc) pc.textContent=en?a.dataset.encap:a.dataset.cap;
+  }
+  pbtns.forEach(function(b){
+    b.addEventListener('click',function(){
+      pm.src=b.dataset.src;pm.alt=b.dataset.alt;
+      pbtns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+      syncCap();
+    });
+  });
+
   var lang=document.getElementById('lang'),en=false;
   lang.addEventListener('click',function(){
     en=!en;
@@ -592,6 +647,7 @@ html[lang="en"] .en-only{display:block!important}
       el.textContent=en?el.dataset.en:el.dataset.zh;
     });
     lang.textContent=en?'中文':'EN';
+    syncCap();
     document.documentElement.lang=en?'en':'zh-CN';
     document.title=en?'Li Hang Heritage · Nanxianggongzhuang':'圣相故里 · 南相公庄｜李沆数字馆';
   });

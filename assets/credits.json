@@ -55,15 +55,14 @@
     "h": 900
   },
   {
-    "file": "assets/song-wenhui-alt.jpg",
-    "title": "File:文會圖.jpg",
-    "artist": "Emperor Huizong of Song",
-    "license": "Public domain",
-    "licenseurl": "",
-    "page": "https://commons.wikimedia.org/wiki/File:%E6%96%87%E6%9C%83%E5%9C%96.jpg",
-    "size": 602643,
-    "w": 1400,
-    "h": 2089,
-    "desc": ""
+    "file": "assets/lihang-portrait.webp / lihang-baimiao.webp / lihang-full.webp",
+    "title": "李沆人物图版三幅（设色半身像、半身白描稿、全身立像）",
+    "artist": "用户提供 · 艺术再现图",
+    "license": "本站使用（用户提供）",
+    "page": "",
+    "size": 0,
+    "w": 0,
+    "h": 0,
+    "desc": "非史实肖像，不作容貌依据"
   }
 ]
