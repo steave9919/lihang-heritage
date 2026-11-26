@@ -24,6 +24,11 @@
 <meta name="twitter:image" content="https://steave9919.github.io/lihang-heritage/assets/og-cover.jpg">
 <meta name="twitter:title" content="一座因宰相得名的村庄｜李沆故里数字馆">
 <meta name="twitter:description" content="北宋名相李沆故里 · 南相公庄村">
+<meta name="format-detection" content="telephone=no">
+<!-- 微信/QQ 等国内抓取器会读 itemprop 与 og，图片必须为绝对地址且可被公网抓取 -->
+<meta itemprop="name" content="一座因宰相得名的村庄｜李沆故里数字馆">
+<meta itemprop="image" content="https://steave9919.github.io/lihang-heritage/assets/og-cover.jpg">
+<meta itemprop="description" content="北宋名相李沆故里。一个被叫了千年的村名，一份以原始文献立站的公开记录。">
 <style>
 :root{
   --ink:#0b1015;
@@ -258,10 +263,37 @@ html[lang="en"] .en-only{display:block!important}
   .scroll-cue i{animation:none}
   html{scroll-behavior:auto}
 }
+/* 微信内浏览引导（仅 MicroMessenger UA 显示） */
+.wx-tip{position:fixed;left:16px;right:16px;bottom:16px;z-index:120;display:none;align-items:center;gap:16px;padding:14px 18px;background:rgba(23,31,39,.97);border:1px solid rgba(184,154,99,.45);box-shadow:0 12px 40px rgba(0,0,0,.45);backdrop-filter:blur(10px)}
+.wx-tip.show{display:flex}
+.wx-tip .wx-mark{font-family:var(--serif);font-size:22px;color:var(--gold);border:1px solid var(--gold-soft);width:36px;height:36px;display:grid;place-items:center;flex:none}
+.wx-tip .wx-text{flex:1;font-size:12px;line-height:1.7;letter-spacing:.04em;color:var(--text-light)}
+.wx-tip .wx-text b{display:block;color:var(--gold);font-weight:400;letter-spacing:.14em;margin-bottom:3px}
+.wx-tip .wx-close{border:0;background:transparent;color:var(--text-light-muted);font-size:20px;line-height:1;cursor:pointer;padding:6px;flex:none}
+.wx-tip .wx-close:hover{color:var(--gold)}
+/* 页脚分享区 */
+.share-row{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-top:46px;padding-top:30px;border-top:1px solid rgba(184,154,99,.18)}
+.share-row h4{font-size:11px;letter-spacing:.24em;color:var(--gold);font-weight:400;margin-bottom:10px}
+.share-row p{font-size:12px;color:var(--text-light-muted);line-height:1.8}
+.share-acts{display:flex;gap:12px;flex-wrap:wrap}
+.share-acts button,.share-acts a{font-family:var(--sans);font-size:11px;letter-spacing:.14em;padding:11px 18px;border:1px solid rgba(184,154,99,.5);background:transparent;color:var(--gold);cursor:pointer;transition:background .25s,color .25s;white-space:nowrap}
+.share-acts button:hover,.share-acts a:hover{background:var(--gold);color:var(--ink)}
+.copy-msg{font-size:11px;letter-spacing:.1em;color:var(--gold);min-height:16px;margin-top:12px}
+@media(max-width:640px){
+  .wx-tip{left:10px;right:10px;bottom:10px;padding:12px;gap:10px}
+  .wx-tip .wx-mark{display:none}
+  .share-row{flex-direction:column;align-items:flex-start;gap:18px}
+}
 </style>
 </head>
 <body>
 <div id="progress"></div>
+
+<div class="wx-tip" id="wxTip" role="note">
+  <div class="wx-mark">相</div>
+  <div class="wx-text"><b>建议在浏览器中打开</b>微信内置浏览器可能限制本站显示。点右上角「···」→「在浏览器中打开」可完整浏览；也可在此菜单里把本页「发送给朋友」。</div>
+  <button class="wx-close" id="wxClose" type="button" aria-label="关闭提示">×</button>
+</div>
 
 <header class="site-header" id="header">
   <div class="brand">
@@ -591,6 +623,18 @@ html[lang="en"] .en-only{display:block!important}
       <a href="https://www.monticello.org/" target="_blank" rel="noopener">视觉参考 · Monticello</a>
     </div>
   </div>
+  <div class="share-row">
+    <div>
+      <h4>分享本页 / SHARE</h4>
+      <p>把这个名字的来历，发给更多乡亲与朋友。<br>微信内分享建议连同分享海报一起发送。</p>
+    </div>
+    <div class="share-acts">
+      <button type="button" id="copyLink">复制本页链接</button>
+      <a href="share/wechat-poster.jpg" download="圣相故里-分享海报.jpg">下载分享海报</a>
+      <a href="share/wechat-long.jpg" download="圣相故里-内容长图.jpg">下载内容长图</a>
+    </div>
+  </div>
+  <p class="copy-msg" id="copyMsg" role="status" aria-live="polite"></p>
   <p class="img-foot">图像说明：李沆人物图版三幅为据史料创作的艺术再现像，非史实肖像、不作容貌依据；邯郸古建筑照片仅作地域文脉展示，非李沆时代遗存。建筑与绘画素材取自 Wikimedia Commons 自由授权资源，作者、许可与原始文件页见「故里风物」章节的图像来源与授权。</p>
   <div class="footer-bottom">
     <span>圣相故里 · 南相公庄　|　LI HANG HERITAGE</span>
@@ -650,6 +694,43 @@ html[lang="en"] .en-only{display:block!important}
     syncCap();
     document.documentElement.lang=en?'en':'zh-CN';
     document.title=en?'Li Hang Heritage · Nanxianggongzhuang':'圣相故里 · 南相公庄｜李沆数字馆';
+  });
+
+  /* 微信内浏览引导 + 一键复制链接（URL 直接取 canonical，换域名无需改此处） */
+  var isWx=/MicroMessenger/i.test(navigator.userAgent),
+      wxTip=document.getElementById('wxTip'),wxClose=document.getElementById('wxClose');
+  if(isWx&&wxTip){
+    try{ if(!sessionStorage.getItem('wxTipClosed')) wxTip.classList.add('show'); }
+    catch(e){ wxTip.classList.add('show'); }
+    wxClose.addEventListener('click',function(){
+      wxTip.classList.remove('show');
+      try{ sessionStorage.setItem('wxTipClosed','1'); }catch(e){}
+    });
+  }
+  var copyBtn=document.getElementById('copyLink'),copyMsg=document.getElementById('copyMsg'),msgTimer;
+  function say(t){
+    if(!copyMsg) return;
+    copyMsg.textContent=t;
+    clearTimeout(msgTimer);
+    msgTimer=setTimeout(function(){copyMsg.textContent='';},4500);
+  }
+  function legacyCopy(t){
+    var ta=document.createElement('textarea');
+    ta.value=t;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');say('链接已复制，粘贴到微信群即可。');}
+    catch(e){say('复制失败，请手动复制地址栏网址。');}
+    document.body.removeChild(ta);
+  }
+  copyBtn.addEventListener('click',function(){
+    var url=(document.querySelector('link[rel="canonical"]')||{}).href||location.href;
+    if(isWx){ say('微信内请点右上角「···」→「发送给朋友」；或选「在浏览器中打开」后再复制链接。'); return; }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(
+        function(){say('链接已复制，粘贴到微信群即可。');},
+        function(){legacyCopy(url);}
+      );
+    } else legacyCopy(url);
   });
 })();
 </script>
