@@ -16,7 +16,10 @@
 <meta property="og:url" content="https://steave9919.github.io/lihang-heritage/">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:locale:alternate" content="en_US">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://steave9919.github.io/lihang-heritage/assets/congtai-cc0-a.jpg">
+<meta property="og:image:alt" content="邯郸武灵丛台夜景">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://steave9919.github.io/lihang-heritage/assets/congtai-cc0-a.jpg">
 <meta name="twitter:title" content="一座因宰相得名的村庄｜李沆故里数字馆">
 <meta name="twitter:description" content="北宋名相李沆故里 · 南相公庄村">
 <style>
@@ -159,6 +162,59 @@ h1 span{display:block;color:var(--gold)}
 .footer-cols a:hover{color:var(--gold)}
 .footer-bottom{margin-top:60px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:10px;letter-spacing:.16em;color:rgba(238,234,225,.35)}
 
+/* ---- imagery ---- */
+.hero-photo{position:absolute;inset:0;background:url("assets/congtai-cc0-a.jpg") center 42%/cover no-repeat;filter:grayscale(.3) sepia(.14) saturate(.85) brightness(.6);opacity:.7;pointer-events:none}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,16,21,.96) 0%,rgba(11,16,21,.86) 38%,rgba(11,16,21,.4) 78%,rgba(11,16,21,.55) 100%),linear-gradient(0deg,var(--ink) 0%,transparent 34%),linear-gradient(180deg,rgba(11,16,21,.7) 0%,transparent 26%);pointer-events:none}
+.hero-landscape{opacity:.24}
+.hero-meta{text-align:right;display:flex;flex-direction:column;gap:8px}
+.hero-meta small{font-size:9px;letter-spacing:.1em;color:rgba(238,234,225,.4);line-height:1.7}
+
+.plates{display:grid;grid-template-columns:1.05fr 1fr 1fr;grid-template-rows:repeat(2,clamp(190px,20vw,290px));gap:1px;background:rgba(184,154,99,.18);border:1px solid rgba(184,154,99,.18)}
+.plate{position:relative;overflow:hidden;background:var(--ink-3);margin:0}
+.plate:nth-child(1){grid-row:span 2}
+.plate:nth-child(2){grid-column:span 2}
+.plate img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.5) sepia(.16) contrast(1.06) brightness(.76);transition:transform 1.1s cubic-bezier(.2,.7,.2,1),filter .6s}
+.plate:hover img{transform:scale(1.045);filter:grayscale(.12) sepia(.08) contrast(1.03) brightness(.92)}
+.plate::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,16,21,.9) 0%,rgba(11,16,21,.24) 48%,transparent 78%);pointer-events:none}
+.plate-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px 24px;pointer-events:none}
+.plate-cap b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(17px,1.8vw,24px);color:var(--text-light);letter-spacing:.04em}
+.plate-cap span{display:block;margin-top:7px;font-size:10px;letter-spacing:.16em;color:rgba(238,234,225,.72)}
+.plate-no{position:absolute;top:18px;left:22px;z-index:2;font-size:10px;letter-spacing:.22em;color:var(--gold)}
+.plate-note{margin-top:38px;max-width:860px;font-size:12px;line-height:2;color:var(--text-light-muted)}
+.plate-note b{color:var(--gold);font-weight:400;letter-spacing:.1em}
+.credits{margin-top:28px;border-top:1px solid rgba(184,154,99,.2);padding-top:20px}
+.credits summary{cursor:pointer;font-size:11px;letter-spacing:.2em;color:var(--gold);list-style:none}
+.credits summary::-webkit-details-marker{display:none}
+.credits summary::before{content:"+ ";color:var(--gold)}
+.credits[open] summary::before{content:"\2013  "}
+.credits ul{list-style:none;margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:9px 44px}
+.credits li{font-size:11px;line-height:1.9;color:var(--text-light-muted)}
+.credits a{color:rgba(238,234,225,.82);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(184,154,99,.5)}
+.credits a:hover{color:var(--gold)}
+
+.portrait-band{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:clamp(32px,5vw,72px);align-items:center;margin-bottom:clamp(56px,7vw,92px)}
+.portrait-fig{margin:0}
+.portrait-fig img{width:100%;height:clamp(300px,38vw,480px);object-fit:cover;object-position:50% 66%;display:block;filter:grayscale(.28) sepia(.2) contrast(1.05) brightness(.82);border:1px solid rgba(184,154,99,.3)}
+.portrait-fig figcaption{margin-top:12px;font-size:10px;line-height:1.9;letter-spacing:.06em;color:var(--text-light-muted)}
+.pn-label{font-size:10px;letter-spacing:.28em;color:var(--gold)}
+.pn-big{margin-top:22px;font-family:var(--serif);font-size:clamp(30px,3.6vw,50px);line-height:1.35;color:var(--text-light)}
+.pn-text{margin-top:24px;max-width:640px;font-size:14px;line-height:2.1;color:var(--text-light-muted)}
+.img-foot{margin-top:44px;font-size:11px;line-height:1.9;color:rgba(238,234,225,.42)}
+
+@media(max-width:1000px){
+  .plates{grid-template-columns:1fr 1fr;grid-template-rows:repeat(2,220px)}
+  .plate:nth-child(1){grid-row:span 1}
+  .plate:nth-child(2){grid-column:span 1}
+  .portrait-band{grid-template-columns:1fr}
+  .portrait-fig img{height:360px}
+  .credits ul{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .plates{grid-template-columns:1fr;grid-template-rows:repeat(4,230px)}
+  .plate:nth-child(1),.plate:nth-child(2){grid-row:span 1;grid-column:span 1}
+  .hero-meta small{display:none}
+  .hero-photo{opacity:.5}
+}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
 .reveal.visible{opacity:1;transform:none}
 .en-only{display:none!important}
@@ -202,6 +258,7 @@ html[lang="en"] .en-only{display:block!important}
   </div>
   <nav class="nav" id="nav">
     <a href="#village" data-en="The village">千年一村</a>
+    <a href="#land" data-en="The land">故里风物</a>
     <a href="#life" data-en="The man">李沆其人</a>
     <a href="#governance" data-en="The statesman">圣相之治</a>
     <a href="#archive" data-en="The archive">文献典藏</a>
@@ -212,6 +269,8 @@ html[lang="en"] .en-only{display:block!important}
 
 <main>
   <section class="hero" id="top">
+    <div class="hero-photo" aria-hidden="true"></div>
+    <div class="hero-shade" aria-hidden="true"></div>
     <div class="hero-word" aria-hidden="true">相</div>
     <svg class="hero-landscape" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
       <circle cx="1090" cy="132" r="66" fill="none" stroke="#b89a63" stroke-width="1" opacity=".55"/>
@@ -232,7 +291,10 @@ html[lang="en"] .en-only{display:block!important}
 
     <div class="hero-foot">
       <div class="scroll-cue"><i></i><span data-en="SCROLL TO EXPLORE">向下浏览</span></div>
-      <span>01 / 06 &nbsp;·&nbsp; 130407103222</span>
+      <div class="hero-meta">
+        <span>01 / 06 &nbsp;·&nbsp; 130407103222</span>
+        <small>背景影像 · 武灵丛台（邯郸）· 地域文脉，非李沆时代遗存<br>WIKIMEDIA COMMONS · CC0</small>
+      </div>
     </div>
   </section>
 
@@ -266,12 +328,72 @@ html[lang="en"] .en-only{display:block!important}
     </div>
   </section>
 
+  <section class="chapter night" id="land">
+    <div class="chapter-head reveal">
+      <div class="chapter-index">图版 / PLATES<em>故里风物</em></div>
+      <div>
+        <h2 data-en="The land that kept the name">一方水土，几处旧迹</h2>
+        <p class="chapter-lead" data-en="Feixiang belongs to Handan, a city layered with history: the terrace of King Wuling, the reform of mounted archery, the walled town of Guangfu, and the Northern Qi grottoes of Xiangtangshan. These are the landmarks of the region that produced the village's name.">肥乡属邯郸。这片土地上，战国的丛台与胡服骑射、北齐的响堂山石窟、明清的广府古城层层叠压。它们不是李沆的遗迹，却构成了「相公庄」这个名字所处的地域文脉——一个村庄之所以能记住一位宰相，背后是一整片善于记事的乡土。</p>
+      </div>
+    </div>
+
+    <div class="plates reveal">
+      <figure class="plate">
+        <span class="plate-no">01 / 战国</span>
+        <img src="assets/zhao-wuling.jpg" alt="邯郸丛台公园内的赵武灵王塑像" loading="lazy" decoding="async" width="1200" height="1600">
+        <figcaption class="plate-cap"><b data-en="King Wuling of Zhao">赵武灵王 · 胡服骑射</b><span data-en="Warring States · the reform of dress and mounted archery">丛台公园内塑像 · 战国赵</span></figcaption>
+      </figure>
+      <figure class="plate">
+        <span class="plate-no">02 / 战国</span>
+        <img src="assets/congtai-cc0-b.jpg" alt="邯郸武灵丛台全景，高台之上的重檐建筑与护台水面" loading="lazy" decoding="async" width="1200" height="900">
+        <figcaption class="plate-cap"><b data-en="Wuling Congtai">武灵丛台</b><span data-en="Handan · a terrace first raised under the Zhao kingdom">邯郸 · 赵国故台，后世屡有重修</span></figcaption>
+      </figure>
+      <figure class="plate">
+        <span class="plate-no">03 / 明清</span>
+        <img src="assets/guangfu-wall.jpg" alt="广府古城城墙沿护城河延伸" loading="lazy" decoding="async" width="1200" height="900">
+        <figcaption class="plate-cap"><b data-en="Guangfu Walled City">广府古城</b><span data-en="Extant walls, mainly Ming and Qing">永年 · 现存城墙多为明清遗存</span></figcaption>
+      </figure>
+      <figure class="plate">
+        <span class="plate-no">04 / 北齐</span>
+        <img src="assets/xiangtangshan.jpg" alt="响堂山石窟内的佛像与窟顶雕刻" loading="lazy" decoding="async" width="1200" height="900">
+        <figcaption class="plate-cap"><b data-en="Xiangtangshan Grottoes">响堂山石窟</b><span data-en="Northern Qi · carved cave shrine">峰峰矿区 · 北齐石窟造像</span></figcaption>
+      </figure>
+    </div>
+
+    <p class="plate-note reveal"><b>时代说明 / A NOTE ON DATING</b>　武灵丛台、赵武灵王与响堂山石窟分属战国赵、北齐等时期，均早于李沆（947—1004）数百年乃至千余年；广府古城现存城墙主要为明清遗存。此处列作故里所在地域的历史文脉，<b>并非李沆生活时代的场景或遗迹</b>。图像为版式统一作了灰度、降饱和与暗化处理，原图见下方来源链接。</p>
+
+    <details class="credits reveal">
+      <summary data-en="IMAGE SOURCES &amp; LICENCES">图像来源与授权 / IMAGE CREDITS</summary>
+      <ul>
+        <li>武灵丛台（夜景 / 日景，Hero 背景与图版 02）· <a href="https://commons.wikimedia.org/wiki/File:%E6%AD%A6%E7%81%B5%E4%B8%9B%E5%8F%B0_1.jpg" target="_blank" rel="noopener">H2v5o68z</a> · <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a> · Wikimedia Commons</li>
+        <li>赵武灵王塑像（图版 01）· <a href="https://commons.wikimedia.org/wiki/File:Statue_of_King_Zhao_Wuling_in_Congtai_Park.jpg" target="_blank" rel="noopener">我乃野云鹤</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> · Wikimedia Commons</li>
+        <li>广府古城城墙（图版 03）· <a href="https://commons.wikimedia.org/wiki/File:Guangfu_Ancient_City_4.jpg" target="_blank" rel="noopener">我乃野云鹤</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> · Wikimedia Commons</li>
+        <li>响堂山石窟佛像（图版 04）· <a href="https://commons.wikimedia.org/wiki/File:A_Buddha_statue_in_Xiangtangshan_Grottoes.jpg" target="_blank" rel="noopener">Rongcan Lu</a> · <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a> · Wikimedia Commons</li>
+        <li>（传）宋徽宗《文会图》（李沆其人章节）· <a href="https://commons.wikimedia.org/wiki/File:%E6%96%87%E6%9C%83%E5%9C%96.jpg" target="_blank" rel="noopener">公有领域 / Public domain</a> · 台北故宫博物院藏 · 时代意象，非李沆肖像</li>
+        <li>全部图像取自 Wikimedia Commons 自由授权素材，已按许可证要求标注作者、许可与原始文件页。</li>
+      </ul>
+    </details>
+  </section>
+
   <section class="chapter night" id="life">
     <div class="chapter-head reveal">
       <div class="chapter-index">02 / THE MAN<em>李沆其人</em></div>
       <div>
         <h2 data-en="The teacher of an emperor">帝师，宰相，文靖公</h2>
         <p class="chapter-lead" data-en="Li Hang, courtesy name Taichu, from Mingzhou Feixiang. He entered official life in 980, tutored the future Emperor Zhenzong, and served as chief chancellor in the Xianping era, remembered for keeping the court steady and the sovereign restrained.">李沆，字太初，洺州肥乡人。太平兴国五年登进士第，历将作监丞、通判潭州、翰林学士、礼部侍郎兼太子宾客，辅导太子赵恒。宋真宗咸平初拜同中书门下平章事、监修国史，卒于任上，享年五十八，谥文靖，配享真宗庙庭。</p>
+      </div>
+    </div>
+
+    <div class="portrait-band reveal">
+      <figure class="portrait-fig">
+        <img src="assets/song-wenhui-alt.jpg" alt="（传）宋徽宗《文会图》，北宋文士宴集场景，公有领域" loading="lazy" decoding="async" width="1400" height="2089">
+        <figcaption>（传）宋徽宗《文会图》· 绢本设色 · 台北故宫博物院藏 · 公有领域<br>北宋士大夫的时代意象，<b>非李沆肖像</b></figcaption>
+      </figure>
+      <div>
+        <div class="pn-label" data-en="ON THE PORTRAIT">关于肖像 / ON THE PORTRAIT</div>
+        <p class="pn-big" data-en="No likeness survives; no image is invented.">史无写真，故不立像</p>
+        <p class="pn-text">李沆（947—1004）没有可信的传世肖像，坊间所见各类「李沆像」多为后世想象或现代绘制。本站不以想象画冒充实像，仅以同时代的宋人绘画呈现他所处的士大夫世界；认识这个人，仍要回到《宋史》本传、杨亿所撰《李沆墓志铭》与民国《肥乡县志》的原文。</p>
+        <p class="pn-text en-only">Li Hang (947–1004) has no surviving authenticated portrait. This site does not present an imagined likeness as a historical image.</p>
       </div>
     </div>
 
@@ -413,6 +535,7 @@ html[lang="en"] .en-only{display:block!important}
     <div>
       <h4>导航 / EXPLORE</h4>
       <a href="#village">千年一村</a>
+      <a href="#land">故里风物</a>
       <a href="#life">李沆其人</a>
       <a href="#governance">圣相之治</a>
       <a href="#archive">文献典藏</a>
@@ -427,6 +550,7 @@ html[lang="en"] .en-only{display:block!important}
       <a href="https://www.monticello.org/" target="_blank" rel="noopener">视觉参考 · Monticello</a>
     </div>
   </div>
+  <p class="img-foot">图像说明：李沆无传世写真，本站不立像；邯郸古建筑照片仅作地域文脉展示，非李沆时代遗存。全部图像取自 Wikimedia Commons 自由授权素材，作者、许可与原始文件页见「故里风物」章节的图像来源与授权。</p>
   <div class="footer-bottom">
     <span>圣相故里 · 南相公庄　|　LI HANG HERITAGE</span>
     <span>HEBEI · HANDAN · FEIXIANG　|　PREVIEW EDITION · 2026</span>
